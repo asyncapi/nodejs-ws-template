@@ -1,6 +1,6 @@
 {
   "name": "@asyncapi/nodejs-ws-template",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Node.js WebSockets template for AsyncAPI generator.",
   "keywords": [
     "asyncapi",
