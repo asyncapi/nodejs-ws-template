@@ -5,5 +5,6 @@
       "description": "The server you want to use in the code.",
       "required": true
     }
-  }
+  },
+  "generator": ">=0.40.1 <2.0.0"
 }
