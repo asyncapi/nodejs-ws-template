@@ -4,7 +4,7 @@ const { yellow } = require('../lib/colors');
 {%- for channelName, channel in asyncapi.channels() -%}
 {%- if channel.hasSubscribe() %}
 {%- if channel.subscribe().id() === undefined -%}
-{ { 'This template requires operationId to be set in every operation.' | throw }}
+{ { 'This template requires operationId to be set in every operation.' | logError }}
 {%- endif %}
 const {{ channelName | camelCase }}Service = require('./services/{{ channelName | kebabCase }}');
 {%- endif -%}
