@@ -1,6 +1,6 @@
 {
   "name": "@asyncapi/nodejs-ws-template",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Node.js WebSockets template for AsyncAPI generator.",
   "keywords": [
     "asyncapi",
@@ -62,7 +62,9 @@
     ]
   },
   "generator": {
-    "supportedProtocols": ["ws"],
+    "supportedProtocols": [
+      "ws"
+    ],
     "parameters": {
       "server": {
         "description": "The server you want to use in the code.",
