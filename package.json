@@ -21,9 +21,10 @@
   },
   "homepage": "https://github.com/asyncapi/nodejs-ws-template#readme",
   "scripts": {
-    "test": "echo \"No test specified yet\"",
     "release": "semantic-release",
-    "get-version": "echo $npm_package_version"
+    "get-version": "echo $npm_package_version",
+    "lint": "echo 'No linter configured yet'",
+    "test": "echo 'No tests yet'"
   },
   "publishConfig": {
     "access": "public"
