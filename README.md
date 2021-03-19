@@ -43,8 +43,9 @@ This is a very early version of the template and not all specification features 
 
 Property name | Reason | Fallback | Default
 ---|---|---|---
-`servers.*.url*` | Template doesn't support variables in the server url. | - | -
+`servers.*.url` | Template doesn't support variables in the server url. | - | -
 `bindings` | Template doesn't use [websockets](https://github.com/asyncapi/bindings/tree/master/websockets) bindings.| - | -
+`operationId` | Operation ID must be set for every operation to generate proper functions as there is no fallback in place | - | -
 
 ## Supported protocols
 
@@ -100,6 +101,15 @@ You can configure this template by passing different parameters in the Generator
 | Name | Description | Required | Default | Allowed Values | Example
 |---|---|---|---|---|---|
 |server|The server you want to use in the code.|Yes| - | Name of the server from the list of servers under Servers object | `localhost`|
+
+
+## Custom hooks that you can disable
+
+The functionality of this template is extended with different hooks that you can disable like this in the Generator CLI: `-d HOOK_TYPE1=HOOK_NAME1,HOOK_NAME2 -d HOOK_TYPE2`
+
+Type | Name | Description
+---|---|---
+generate:after | createAsyncapiFile | It creates AsyncAPI file with content of the spec file passed to the generator
 
 ## Development
 
