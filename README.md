@@ -18,6 +18,7 @@
 - [How to use the template](#how-to-use-the-template)
   * [CLI](#cli)
 - [Template configuration](#template-configuration)
+- [Custom hooks that you can disable](#custom-hooks-that-you-can-disable)
 - [Development](#development)
 - [Contributors](#contributors)
 
