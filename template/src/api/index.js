@@ -5,6 +5,7 @@ const routes = require('./routes');
 const asyncapi = require('../lib/asyncapi');
 
 const start = async () => {
+  //you have access to parsed AsyncAPI document in the runtime with asyncapi.get()
   await asyncapi.init();
 
   app.use(routes);

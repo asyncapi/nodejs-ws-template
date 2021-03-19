@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { parse } = require('asyncapi-parser');
+const { parse } = require('@asyncapi/parser');
 
 let cached;
 

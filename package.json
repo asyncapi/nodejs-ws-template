@@ -24,7 +24,8 @@
     "release": "semantic-release",
     "lint": "echo 'No linter configured yet'",
     "test": "echo 'No tests yet'",
-    "generate:assets": "echo 'No additional assets need to be generated at the moment'",
+    "generate:assets": "npm run generate:readme:toc",
+    "generate:readme:toc": "markdown-toc -i README.md",
     "bump:version": "npm --no-git-tag-version --allow-same-version version $VERSION"
   },
   "publishConfig": {
@@ -40,6 +41,7 @@
     "@semantic-release/npm": "^7.0.3",
     "@semantic-release/release-notes-generator": "^9.0.1",
     "conventional-changelog-conventionalcommits": "^4.2.3",
+    "markdown-toc": "^1.2.0",
     "semantic-release": "^17.0.4"
   },
   "release": {
