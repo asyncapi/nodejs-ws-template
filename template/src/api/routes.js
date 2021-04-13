@@ -10,7 +10,7 @@ const { yellow } = require('../lib/colors');
 {%- endif %}
 const {{ channel.path() | camelCase }}Service = require('./services/{{ channel.path() | kebabCase }}');
 {%- endif -%}
-{%- endif -%}
+{%- endfor -%}
 {%- endfor %}
 const router = Router();
 module.exports = router;
@@ -31,5 +31,5 @@ router.ws('{{ channel.path() | pathResolve }}', async (ws, req) => {
   });
 });
 {%- endif %}
-{%- endif %}
+{%- endfor %}
 {% endfor -%}

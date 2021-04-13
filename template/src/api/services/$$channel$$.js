@@ -18,7 +18,7 @@ const service = module.exports = {};
 {%- endfor %}
 {%- endif %}
  */
-service.{{ channel.publish().id() }} = async (ws, { message }) => {
+service.{{ operation.id() }} = async (ws, { message }) => {
   ws.send('Message from the server: Implement your business logic here.');
 };
 {%- endif %}

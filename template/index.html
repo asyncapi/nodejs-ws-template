@@ -23,7 +23,7 @@
       console.log('Available commands:')
       console.log('- listen: Establish a connection with the server at a given path.')
       console.log('  Usage: listen(channelName)');
-      console.log(`  Example: listen('{{ asyncapi.channelNames()[0] }}')`);
+      console.log(`  Example: listen('{{ asyncapi.channels()[0].path() }}')`);
       console.log('- send: Send a message to the server at a currently connected path.')
       console.log('  Usage: send(message)');
       console.log(`  Example: send({ greet: 'Hello from client' })`);
