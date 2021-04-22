@@ -3,21 +3,9 @@ const service = module.exports = {};
 /**
  * {{ channel.subscribe().summary() }}
  * @param {object} ws WebSocket connection.
- * @param {object} options
- * @param {%raw%}{{%endraw%}{{channel.subscribe().message(0).payload().type()}}{%raw%}}{%endraw%} options.message The message to send.
-{%- if channel.subscribe().message(0).headers() %}
-{%- for fieldName, field in channel.subscribe().message(0).headers().properties() %}
-{{ field | docline(fieldName, 'options.message.headers') }}
-{%- endfor %}
-{%- endif %}
-{%- if channel.subscribe().message(0).payload() %}
-{%- for fieldName, field in channel.subscribe().message(0).payload().properties() %}
-{{ field | docline(fieldName, 'options.message.payload') }}
-{%- endfor %}
-{%- endif %}
  */
-service.{{ channel.subscribe().id() }} = async (ws, { message }) => {
-  ws.send('Message from the server: Implement your business logic here.');
+service.{{ channel.subscribe().id() }} = async (ws) => {
+  ws.send('Message from the server: Implement here your business logic that sends messages to a client after it connects.');
 };
 
 {%- endif %}
@@ -40,8 +28,8 @@ service.{{ channel.subscribe().id() }} = async (ws, { message }) => {
 {%- endfor %}
 {%- endif %}
  */
-service.{{ channel.publish().id() }} = async (ws, { message, path }) => {
-  ws.send('Message from the server: Implement your business logic here.');
+service.{{ channel.publish().id() }} = async (ws, { message, path, query }) => {
+  ws.send('Message from the server: Implement here your business logic that reacts on messages sent from a client.');
 };
 
 {%- endif %}
