@@ -24,15 +24,15 @@ function getOperationIds(channel) {
     const id = opName === 'subscribe' ? channel.subscribe().id() : channel.publish().id();
     if (!id) throw new Error(noOperationIdError);
 
-    list += `, ${id}`;
+    return `, ${id}`;
   }
 
   if (channel.hasSubscribe()) {
-    parseOperationId(channel, 'subscribe');
+    list += parseOperationId(channel, 'subscribe');
   }
 
   if (channel.hasPublish()) {
-    parseOperationId(channel, 'publish');
+    list += parseOperationId(channel, 'publish');
   }
 
   return list.substring(1);
