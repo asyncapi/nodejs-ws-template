@@ -1,31 +1,27 @@
 const util = require('util');
 const { Router } = require('express');
+const { pathParser } = require('../lib/path');
 const { yellow } = require('../lib/colors');
 {%- for channelName, channel in asyncapi.channels() -%}
-{%- if channel.hasSubscribe() %}
-{%- if channel.subscribe().id() === undefined -%}
-{ { 'This template requires operationId to be set in every operation.' | logError }}
-{%- endif %}
-const {{ channelName | camelCase }}Service = require('./services/{{ channelName | kebabCase }}');
-{%- endif -%}
+{% set allOperationIds = channel | getOperationIds %}
+const { {{ allOperationIds }} } = require('./services/{{ channelName | kebabCase }}');
 {%- endfor %}
 const router = Router();
 module.exports = router;
 {% for channelName, channel in asyncapi.channels() -%}
-{%- if channel.hasSubscribe() %}
-  {%- if channel.subscribe().summary() %}
-/**
- * {{ channel.subscribe().summary() }}
- */
-  {%- endif %}
 router.ws('{{ channelName | pathResolve }}', async (ws, req) => {
+  const path = pathParser(req.path);
+  console.log(`${yellow(path)} client connected.`);
+  {%- if channel.hasSubscribe() %}
+  await {{ channel.subscribe().id() }}(ws);
+  {%- endif %}
+
+  {%- if channel.hasPublish() %}
   ws.on('message', async (msg) => {
-    const path = req.path.substr(0, req.path.length - '/.websocket'.length);
     console.log(`${yellow(path)} message was received:`);
     console.log(util.inspect(msg, { depth: null, colors: true }));
-    await {{ channelName | camelCase }}Service.{{ channel.subscribe().id() }}(ws, { message: msg, path, query: req.query });
+    await {{ channel.publish().id() }}(ws, { message: msg, path, query: req.query });
   });
+  {%- endif %}
 });
-
-{%- endif %}
 {% endfor -%}

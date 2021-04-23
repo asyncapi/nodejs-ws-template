@@ -13,3 +13,24 @@ function pathResolve(pathName, basePath = '/') {
   return path.resolve(basePath, pathName);
 }
 filter.pathResolve = pathResolve;
+
+/*
+ * returns comma separated string of all operationIds of a given channel
+*/
+const parseOperationId = (channel, opName) => {
+  const id = opName === 'subscribe' ? channel.subscribe().id() : channel.publish().id();
+  if (!id) throw new Error('This template requires operationId to be set in every operation.');
+  return id;
+}
+
+function getOperationIds(channel) {
+  const list = [];
+  if (channel.hasSubscribe()) {
+    list.push(parseOperationId(channel, 'subscribe'));
+  }
+  if (channel.hasPublish()) {
+    list.push(parseOperationId(channel, 'publish'));
+  }
+  return list.filter(Boolean).join(', ');
+}
+filter.getOperationIds = getOperationIds;
