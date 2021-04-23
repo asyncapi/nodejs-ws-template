@@ -17,24 +17,20 @@ filter.pathResolve = pathResolve;
 /*
  * returns comma separated string of all operationIds of a given channel
 */
+const parseOperationId = (channel, opName) => {
+  const id = opName === 'subscribe' ? channel.subscribe().id() : channel.publish().id();
+  if (!id) throw new Error('This template requires operationId to be set in every operation.');
+  return id;
+}
+
 function getOperationIds(channel) {
-  const noOperationIdError = 'This template requires operationId to be set in every operation.'
-  let list = '';
-  let parseOperationId = (channel, opName) => {
-    const id = opName === 'subscribe' ? channel.subscribe().id() : channel.publish().id();
-    if (!id) throw new Error(noOperationIdError);
-
-    return `, ${id}`;
-  }
-
+  const list = [];
   if (channel.hasSubscribe()) {
-    list += parseOperationId(channel, 'subscribe');
+    list.push(parseOperationId(channel, 'subscribe'));
   }
-
   if (channel.hasPublish()) {
-    list += parseOperationId(channel, 'publish');
+    list.push(parseOperationId(channel, 'publish'));
   }
-
-  return list.substring(1);
+  return list.filter(Boolean).join(', ');
 }
 filter.getOperationIds = getOperationIds;
