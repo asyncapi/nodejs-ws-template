@@ -28,7 +28,17 @@
       "contributions": [
         "infra"
       ]
+    },
+    {
+      "login": "aayushmau5",
+      "name": "Aayush Kumar Sahu",
+      "avatar_url": "https://avatars.githubusercontent.com/u/54525741?v=4",
+      "profile": "https://aayushsahu.com",
+      "contributions": [
+        "security"
+      ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "skipCi": true
 }
