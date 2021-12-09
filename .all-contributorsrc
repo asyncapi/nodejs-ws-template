@@ -28,7 +28,17 @@
       "contributions": [
         "infra"
       ]
+    },
+    {
+      "login": "KatrinaAS",
+      "name": "Katrina Knight",
+      "avatar_url": "https://avatars.githubusercontent.com/u/690546?v=4",
+      "profile": "https://github.com/KatrinaAS",
+      "contributions": [
+        "infra"
+      ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "skipCi": true
 }
