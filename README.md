@@ -152,6 +152,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://dev.to/derberg"><img src="https://avatars.githubusercontent.com/u/6995927?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lukasz Gornicki</b></sub></a><br /><a href="#infra-derberg" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
     <td align="center"><a href="https://aayushsahu.com"><img src="https://avatars.githubusercontent.com/u/54525741?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Aayush Kumar Sahu</b></sub></a><br /><a href="#security-aayushmau5" title="Security">🛡️</a></td>
     <td align="center"><a href="https://github.com/KatrinaAS"><img src="https://avatars.githubusercontent.com/u/690546?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Katrina Knight</b></sub></a><br /><a href="#infra-KatrinaAS" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
+    <td align="center"><a href="https://github.com/RageZBla"><img src="https://avatars.githubusercontent.com/u/1196871?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Olivier Lechevalier</b></sub></a><br /><a href="https://github.com/asyncapi/nodejs-ws-template/commits?author=RageZBla" title="Code">💻</a></td>
   </tr>
 </table>
 
