@@ -16,6 +16,7 @@
     "type": "git",
     "url": "git+https://github.com/asyncapi/nodejs-ws-template.git"
   },
+  "type": "module",
   "bugs": {
     "url": "https://github.com/asyncapi/nodejs-ws-template/issues"
   },
@@ -23,25 +24,33 @@
   "scripts": {
     "release": "semantic-release",
     "lint": "echo 'No linter configured yet'",
-    "test": "echo 'No tests yet'",
     "generate:assets": "npm run generate:readme:toc",
     "generate:readme:toc": "markdown-toc -i README.md",
-    "bump:version": "npm --no-git-tag-version --allow-same-version version $VERSION"
+    "bump:version": "npm --no-git-tag-version --allow-same-version version $VERSION",
+    "start": "node src/api/index.js",
+    "test": "rimraf test/temp && jest"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
     "@asyncapi/generator-filters": "^2.1.0",
-    "@asyncapi/generator-hooks": "^0.1.0"
+    "@asyncapi/generator-hooks": "^0.1.0",
+    "@asyncapi/parser": "^1.13.1",
+    "dummy-json": "^3.0.4",
+    "node-yaml-config": "^1.0.0"
   },
   "devDependencies": {
+    "@asyncapi/generator": "^1.8.27",
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/github": "^7.0.4",
     "@semantic-release/npm": "^7.0.3",
     "@semantic-release/release-notes-generator": "^9.0.1",
     "conventional-changelog-conventionalcommits": "^4.2.3",
+    "jest": "^27.4.5",
     "markdown-toc": "^1.2.0",
+    "node-fetch": "^3.1.0",
+    "rimraf": "^3.0.2",
     "semantic-release": "^17.0.4"
   },
   "release": {
