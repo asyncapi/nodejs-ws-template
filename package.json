@@ -16,7 +16,6 @@
     "type": "git",
     "url": "git+https://github.com/asyncapi/nodejs-ws-template.git"
   },
-  "type": "module",
   "bugs": {
     "url": "https://github.com/asyncapi/nodejs-ws-template/issues"
   },
@@ -27,7 +26,6 @@
     "generate:assets": "npm run generate:readme:toc",
     "generate:readme:toc": "markdown-toc -i README.md",
     "bump:version": "npm --no-git-tag-version --allow-same-version version $VERSION",
-    "start": "node src/api/index.js",
     "test": "rimraf test/temp && jest"
   },
   "publishConfig": {
@@ -35,10 +33,7 @@
   },
   "dependencies": {
     "@asyncapi/generator-filters": "^2.1.0",
-    "@asyncapi/generator-hooks": "^0.1.0",
-    "@asyncapi/parser": "^1.13.1",
-    "dummy-json": "^3.0.4",
-    "node-yaml-config": "^1.0.0"
+    "@asyncapi/generator-hooks": "^0.1.0"
   },
   "devDependencies": {
     "@asyncapi/generator": "^1.8.27",
@@ -49,7 +44,7 @@
     "conventional-changelog-conventionalcommits": "^4.2.3",
     "jest": "^27.4.5",
     "markdown-toc": "^1.2.0",
-    "node-fetch": "^3.1.0",
+    "node-fetch": "^2.6.1",
     "rimraf": "^3.0.2",
     "semantic-release": "^17.0.4"
   },
