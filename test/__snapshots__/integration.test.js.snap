@@ -39,7 +39,7 @@ const { yellow } = require('../lib/colors');
 const { onEcho, sendEcho } = require('./services/echo');
 const router = Router();
 module.exports = router;
-router.ws('C:\\\\echo', async (ws, req) => {
+router.ws('/echo', async (ws, req) => {
   const path = pathParser(req.path);
   console.log(\`\${yellow(path)} client connected.\`);
   await onEcho(ws);
@@ -49,6 +49,7 @@ router.ws('C:\\\\echo', async (ws, req) => {
     await sendEcho(ws, { message: msg, path, query: req.query });
   });
 });
+
 "
 `;
 
