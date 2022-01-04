@@ -9,7 +9,7 @@ const { {{ allOperationIds }} } = require('./services/{{ channelName | kebabCase
 const router = Router();
 module.exports = router;
 {% for channelName, channel in asyncapi.channels() -%}
-router.ws('{{ channelName  }}', async (ws, req) => {
+router.ws('{{channelName | pathResolve}}', async (ws, req) => {
   const path = pathParser(req.path);
   console.log(`${yellow(path)} client connected.`);
   {%- if channel.hasSubscribe() %}

@@ -49,7 +49,6 @@ router.ws('/echo', async (ws, req) => {
     await sendEcho(ws, { message: msg, path, query: req.query });
   });
 });
-
 "
 `;
 
