@@ -10,12 +10,11 @@ function port(url, defaultPort) {
 filter.port = port;
 
 function pathResolve(pathName, basePath = '/') {
-  if(pathName.startsWith("/")){
-  return pathName;
+  if (pathName.startsWith('/')) {
+    return pathName;
   }
-  else{
-    path.resolve(basePath,pathName);
-  }
+  
+  return path.resolve(pathName).replace(/C:\\/g, '/');
 }
 filter.pathResolve = pathResolve;
 
@@ -26,7 +25,7 @@ const parseOperationId = (channel, opName) => {
   const id = opName === 'subscribe' ? channel.subscribe().id() : channel.publish().id();
   if (!id) throw new Error('This template requires operationId to be set in every operation.');
   return id;
-}
+};
 
 function getOperationIds(channel) {
   const list = [];
