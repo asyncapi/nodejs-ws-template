@@ -26,7 +26,12 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/6995927?v=4",
       "profile": "https://dev.to/derberg",
       "contributions": [
-        "infra"
+        "infra",
+        "code",
+        "review",
+        "maintenance",
+        "doc",
+        "blog"
       ]
     },
     {
@@ -54,6 +59,15 @@
       "profile": "https://github.com/RageZBla",
       "contributions": [
         "code"
+      ]
+    },
+    {
+      "login": "Krishks369",
+      "name": "Krishna Kumar S",
+      "avatar_url": "https://avatars.githubusercontent.com/u/71367204?v=4",
+      "profile": "https://github.com/Krishks369",
+      "contributions": [
+        "test"
       ]
     }
   ],

@@ -45,6 +45,7 @@
     "@semantic-release/npm": "^7.0.3",
     "@semantic-release/release-notes-generator": "^9.0.1",
     "conventional-changelog-conventionalcommits": "^4.2.3",
+
     "eslint": "^8.6.0",
     "jest": "^27.4.5",
     "markdown-toc": "^1.2.0",

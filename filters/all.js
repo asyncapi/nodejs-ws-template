@@ -10,11 +10,12 @@ function port(url, defaultPort) {
 filter.port = port;
 
 function pathResolve(pathName, basePath = '/') {
-  if (pathName.startsWith('/')) {
-    return pathName;
+  if(pathName.startsWith("/")){
+  return pathName;
   }
-  
-  return path.resolve(pathName).replace(/C:\\/g, '/');
+  else{
+    path.resolve(basePath,pathName);
+  }
 }
 filter.pathResolve = pathResolve;
 
