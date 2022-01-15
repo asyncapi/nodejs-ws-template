@@ -28,7 +28,6 @@
     "generate:readme:toc": "markdown-toc -i README.md",
     "bump:version": "npm --no-git-tag-version --allow-same-version version $VERSION",
     "test": "rimraf test/temp && jest"
-    
   },
   "publishConfig": {
     "access": "public"

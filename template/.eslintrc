@@ -7,8 +7,6 @@ env:
   node: true
   es6: true
 
-
-
 rules:
   # Possible Errors
   no-console: 0
