@@ -1,0 +1,7 @@
+node_modules
+test/temp
+template/src/api/routes.js
+template/src/api/services/$$channel$$.js
+template/src/lib/asyncapi.js
+
+
