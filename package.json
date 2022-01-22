@@ -48,7 +48,7 @@
     "eslint-plugin-sonarjs": "^0.11.0",
     "jest": "^27.4.5",
     "markdown-toc": "^1.2.0",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^3.1.1",
     "rimraf": "^3.0.2",
     "semantic-release": "^17.0.4"
   },
