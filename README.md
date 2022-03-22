@@ -1,9 +1,4 @@
-<h5 align="center">
-  <br>
-  <a href="https://www.asyncapi.org"><img src="https://github.com/asyncapi/parser-nodejs/raw/master/assets/logo.png" alt="AsyncAPI logo" width="200"></a>
-  <br>
-  AsyncAPI Node.js WebSocket Template
-</h5>
+[![AsyncAPI logo](./assets/github-repobanner-nodewstemp.png)](https://www.asyncapi.com)
 
 ![npm](https://img.shields.io/npm/v/@asyncapi/nodejs-ws-template?style=for-the-badge) ![npm](https://img.shields.io/npm/dt/@asyncapi/nodejs-ws-template?style=for-the-badge)
 
