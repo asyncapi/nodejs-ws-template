@@ -11,7 +11,8 @@
 - [Specification requirements](#specification-requirements)
 - [Supported protocols](#supported-protocols)
 - [How to use the template](#how-to-use-the-template)
-  * [CLI](#cli)
+  * [ Interactive Server/Client](#isc)
+  * [ Data Streaming Client](#dsc)
 - [Template configuration](#template-configuration)
 - [Custom hooks that you can disable](#custom-hooks-that-you-can-disable)
 - [Development](#development)
@@ -21,9 +22,10 @@
 
 ## Overview
 
-This template generates two resources related to WebSockets:
+This template generates the following resources related to WebSockets:
 - Server application with WebSocket endpoint based on [Express.js](https://expressjs.com/)
 - Client HTML file with simple scripts that give you a basic API to talk to the server
+- Client node-js script to connect and receive data from a websocket data streaming service
 
 Other files are for the setup of developer environment, like `.editorconfig` or `.eslint`.
 
@@ -51,7 +53,7 @@ Property name | Reason | Fallback | Default
 
 This template must be used with the AsyncAPI Generator. You can find all available options [here](https://github.com/asyncapi/generator/).
 
-### CLI
+### Interactive Server/Client
 
 ```bash
 # Install the AsyncAPI Generator
@@ -89,6 +91,30 @@ send({ greet: 'Hello from client' })
 
 # You should see the sent message in the logs of the previously started server
 ```
+
+### One-Way Data Streaming Client
+
+In case of one-way data streaming use case, A client program establishes the websocket connection with the specified service and starts to receive data in a streaming fashion. In this usage, a single channel is assumed in the service configuration and only subscribe operation is supported for the channel. To generate the data streaming client, modify the test/streaming.yaml accordingly:
+  * specify the service host url
+  * specify the channel and bindings associated with the channel
+  * specify the message subscribed
+
+
+```bash
+# Install the AsyncAPI Generator
+npm install -g @asyncapi/generator
+
+# Run generation
+ag test/streaming.yaml @asyncapi/nodejs-ws-template -o output -p server=localhost
+
+##
+## Start the client
+##
+
+# Go to the generated server
+cd output
+node client.js
+
 
 ## Template configuration
 
@@ -132,6 +158,8 @@ There are two ways you can work on template development:
   # assumption is that generator sources are cloned on the same level as the template
   ../generator/cli.js https://raw.githubusercontent.com/asyncapi/generator/v1.4.0/test/docs/ws.yml ./ -o output
   ```
+
+
 
 
 ## Contributors

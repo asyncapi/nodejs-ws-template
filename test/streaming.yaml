@@ -1,0 +1,48 @@
+asyncapi: '2.2.0'
+info:
+  title: data streaming example API
+  version: '1.0.0'
+  description: |
+    allows clients to subscribe to a data streaming API
+  license:
+    name: Apache 2.0
+    url: 'https://www.apache.org/licenses/LICENSE-2.0'
+servers:
+  localhost:
+    url: admin:Welcome_1@localhost:9002
+    protocol: ws
+
+defaultContentType: application/json
+
+channels:
+  /services/v2/stream/stream1:
+    bindings:
+      ws:
+        bindingVersion: 0.1.0
+        query:
+          type: object
+          description: query parameter like begin=earliest
+          properties:
+            begin:
+              type: string
+              default: earliest
+              description: begin position to start streaming data
+    subscribe:
+      summary: data records
+      operationId: onRecords
+      message:
+        $ref : '#/components/messages/userRecords'
+
+components:
+  messages:
+    userRecords:
+      name: userRecords
+      title: User Data Records
+      summary: array of user data records in json format
+      contentType: application/json
+      payload:
+        type: array
+        items:
+          type: object
+
+
