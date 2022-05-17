@@ -11,8 +11,8 @@
 - [Specification requirements](#specification-requirements)
 - [Supported protocols](#supported-protocols)
 - [How to use the template](#how-to-use-the-template)
-  * [ Interactive Server/Client](#isc)
-  * [ Data Streaming Client](#dsc)
+  * [Interactive Server Client](#interactive-server-client)
+  * [Data Streaming Client](#data-streaming-client)
 - [Template configuration](#template-configuration)
 - [Custom hooks that you can disable](#custom-hooks-that-you-can-disable)
 - [Development](#development)
@@ -53,7 +53,7 @@ Property name | Reason | Fallback | Default
 
 This template must be used with the AsyncAPI Generator. You can find all available options [here](https://github.com/asyncapi/generator/).
 
-### Interactive Server/Client
+### Interactive Server Client
 
 ```bash
 # Install the AsyncAPI Generator
@@ -92,7 +92,7 @@ send({ greet: 'Hello from client' })
 # You should see the sent message in the logs of the previously started server
 ```
 
-### One-Way Data Streaming Client
+### Data Streaming Client
 
 In case of one-way data streaming use case, A client program establishes the websocket connection with the specified service and starts to receive data in a streaming fashion. In this usage, a single channel is assumed in the service configuration and only subscribe operation is supported for the channel. To generate the data streaming client, modify the test/streaming.yaml accordingly:
   * specify the service host url
@@ -114,7 +114,7 @@ ag test/streaming.yaml @asyncapi/nodejs-ws-template -o output -p server=localhos
 # Go to the generated server
 cd output
 node client.js
-
+```
 
 ## Template configuration
 
