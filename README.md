@@ -112,7 +112,7 @@ ag test/streaming.yaml @asyncapi/nodejs-ws-template -o output -p server=localhos
 ## Start the client
 ##
 
-# Go to the generated output folder
+# Go to generated output folder
 cd output
 node client.js
 ```
