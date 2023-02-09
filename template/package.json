@@ -6,7 +6,7 @@
     "start": "node src/api/index.js"
   },
   "dependencies": {
-    "@asyncapi/parser": "^2.0.0-next-major.14",
+    "@asyncapi/parser": "^2.0.0-next-major.15",
     "express": "4.18.2",
     "express-ws": "4.0.0",
     "node-yaml-config": "0.0.6"
