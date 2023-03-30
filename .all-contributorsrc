@@ -69,6 +69,16 @@
       "contributions": [
         "test"
       ]
+    },
+    {
+      "login": "ivankahl",
+      "name": "Ivan Kahl",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5931577?v=4",
+      "profile": "http://ivankahl.com/",
+      "contributions": [
+        "code",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
