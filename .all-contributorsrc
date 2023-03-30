@@ -8,7 +8,7 @@
   ],
   "imageSize": 100,
   "commit": false,
-  "commitConvention": "none",
+  "commitConvention": "angular",
   "contributors": [
     {
       "login": "fmvilas",
@@ -67,6 +67,16 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/71367204?v=4",
       "profile": "https://github.com/Krishks369",
       "contributions": [
+        "test"
+      ]
+    },
+    {
+      "login": "ivankahl",
+      "name": "Ivan Kahl",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5931577?v=4",
+      "profile": "http://ivankahl.com/",
+      "contributions": [
+        "code",
         "test"
       ]
     }
