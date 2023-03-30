@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
-const { parse } = require('@asyncapi/parser');
+const { Parser } = require('@asyncapi/parser');
+
+const parser = new Parser();
 
 let cached;
 
@@ -20,7 +22,7 @@ module.exports.init = async () => {
   }
 
   try {
-    cached = await parse(content);
+    cached = await parser.parse(content);
   } catch (e) {
     throw e;
   }
