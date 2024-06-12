@@ -6,7 +6,7 @@
     "start": "node src/api/index.js"
   },
   "dependencies": {
-    "@asyncapi/parser": "^3.0.14",
+    "@asyncapi/parser": "^3.1.0",
     "express": "4.19.2",
     "express-ws": "4.0.0",
     "node-yaml-config": "0.0.6"
