@@ -1,4 +1,9 @@
-const fs = require('fs');
+const { File } = require('@asyncapi/generator-react-sdk');
+
+function asyncApiFile() {
+  return (
+    <File name="asyncapi.js">
+      {`const fs = require('fs');
 const path = require('path');
 const { Parser } = require('@asyncapi/parser');
 
@@ -17,7 +22,7 @@ module.exports.init = async () => {
     try {
       content = fs.readFileSync(path.resolve(__dirname, '../../asyncapi.json'), { encoding: 'utf8' });
     } catch (err) {
-      throw new Error('Coud not find asyncapi.yaml or asyncapi.json file in the root directory of the project.');
+      throw new Error('Could not find asyncapi.yaml or asyncapi.json file in the root directory of the project.');
     }
   }
 
@@ -30,4 +35,9 @@ module.exports.init = async () => {
   return cached;
 };
 
-module.exports.get = () => cached;
+module.exports.get = () => cached;`}
+    </File>
+  );
+}
+
+module.exports = asyncApiFile;

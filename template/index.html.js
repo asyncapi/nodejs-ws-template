@@ -1,7 +1,20 @@
-<!DOCTYPE html>
+const { File } = require('@asyncapi/generator-react-sdk');
+
+function indexHtmlRender({ asyncapi }) {
+  const channels = asyncapi.channels();
+  const channelNames = Object.keys(channels);
+
+  const subscribeChannels = channelNames.filter(channelName => {
+    const channel = channels[channelName];
+    return channel.subscribe && typeof channel.subscribe === 'function';
+  });
+
+  return (
+    <File name="index.html">
+      {`<!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{{ asyncapi.info().title() }}</title>
+    <title>${asyncapi.info().title()}</title>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
   </head>
@@ -13,26 +26,22 @@
 
     function displayHelp() {
       console.log('Available channels:')
-      {%- for channelName, channel in asyncapi.channels() %}
-      {%- if channel.hasSubscribe() %}
-      console.log('* {{ channelName }}');
-      {%- endif -%}
-      {% endfor %}
+      ${subscribeChannels.map(channelName => `console.log('* ${channelName}');`).join('\n')}
       console.log('Available commands:')
       console.log('- listen: Establish a connection with the server at a given path.')
       console.log('  Usage: listen(channelName)');
-      console.log(`  Example: listen('{{ asyncapi.channelNames()[0] }}')`);
+      console.log(\`  Example: listen('${channelNames[0]}')\`);
       console.log('- send: Send a message to the server at a currently connected path.')
       console.log('  Usage: send(message)');
-      console.log(`  Example: send({ greet: 'Hello from client' })`);
+      console.log(\`  Example: send({ greet: 'Hello from client' })\`);
     }
 
     function listen(path) {
-      const url = new URL(path, 'ws://{{ asyncapi.server(params.server).url() }}').toString()
+      const url = new URL(path, 'ws://${asyncapi.server('localhost').url()}').toString()
       connection = new WebSocket(url)
 
       connection.onerror = error => {
-        console.log(`WebSocket error: ${error}`)
+        console.log(\`WebSocket error: \${error}\`)
       }
 
       connection.onopen = () => {
@@ -59,4 +68,9 @@
     displayHelp();
     </script>
   </body>
-</html>
+</html>`}
+    </File>
+  );
+}
+
+module.exports = indexHtmlRender;
