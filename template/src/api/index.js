@@ -29,7 +29,8 @@ const start = async () => {
   console.info(\`Listening on port \${config.port}\`);
 };
 
-start();`}
+start();
+`}
     </File>
   );
 }

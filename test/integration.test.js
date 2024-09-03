@@ -5,7 +5,7 @@ const fetch = require('node-fetch');
 const console = require('console');
 
 const MAIN_TEST_RESULT_PATH = path.join('test', 'temp', ' integrationTestResult');
-const URL = 'https://raw.githubusercontent.com/asyncapi/generator/master/test/docs/ws.yml';
+const URL = 'https://raw.githubusercontent.com/asyncapi/generator/master/apps/generator/test/docs/ws.yml';
 
 describe('template integration test using generator', () => {
   const generateFolderName = () => {
