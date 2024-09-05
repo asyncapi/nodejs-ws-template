@@ -37,12 +37,19 @@ service.${publish.id()} = async (ws, { message, path, query }) => {
 }
 
 module.exports = function servicesRender({ asyncapi }) {
-  const channelName = Object.keys(asyncapi.channels())[0];
-  const channel = asyncapi.channels()[channelName];
-  const service = generateService(channel);
+  const files = [];
 
-  const content = `const service = module.exports = {};
-${service}`;
+  Object.keys(asyncapi.channels()).forEach(channelName => {
+    const channel = asyncapi.channels()[channelName];
+    const service = generateService(channel);
+    files.push(
+      <File name={`${convertToFilename(channelName)}.js`}>
+{`const service_${convertToFilename(channelName)} = {};
 
-  return <File name={`${convertToFilename(channelName)}.js`}>{content}</File>;
+${service}
+`}
+      </File>
+    );
+  });
+  return files;
 }

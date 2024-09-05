@@ -37,6 +37,7 @@ const { Router } = require('express');
 const { pathParser } = require('../lib/path');
 const { yellow } = require('../lib/colors');
 const { onEcho, sendEcho } = require('./services/echo');
+const { onBroadcastReceive, sendBroadcast } = require('./services/broadcast');
 const router = Router();
 module.exports = router;
 router.ws('/echo', async (ws, req) => {
@@ -47,6 +48,16 @@ router.ws('/echo', async (ws, req) => {
     console.log(\`\${yellow(path)} message was received:\`);
     console.log(util.inspect(msg, { depth: null, colors: true }));
     await sendEcho(ws, { message: msg, path, query: req.query });
+  });
+});
+router.ws('/broadcast', async (ws, req) => {
+  const path = pathParser(req.path);
+  console.log(\`\${yellow(path)} client connected.\`);
+  await onBroadcastReceive(ws);
+  ws.on('message', async (msg) => {
+    console.log(\`\${yellow(path)} message was received:\`);
+    console.log(util.inspect(msg, { depth: null, colors: true }));
+    await sendBroadcast(ws, { message: msg, path, query: req.query });
   });
 });
 "
