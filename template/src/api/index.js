@@ -1,4 +1,9 @@
-const app = require('express')();
+const { File } = require('@asyncapi/generator-react-sdk');
+
+function apiIndexFile() {
+  return (
+    <File name={"index.js"}>
+      {`const app = require('express')();
 require('express-ws')(app);
 const config = require('../lib/config');
 const routes = require('./routes');
@@ -21,7 +26,13 @@ const start = async () => {
   });
 
   app.listen(config.port);
-  console.info(`Listening on port ${config.port}`);
+  console.info(\`Listening on port \${config.port}\`);
 };
 
 start();
+`}
+    </File>
+  );
+}
+
+module.exports = apiIndexFile;

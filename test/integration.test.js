@@ -1,12 +1,9 @@
 const path = require('path');
 const Generator = require('@asyncapi/generator');
 const {readFile} = require('fs').promises;
-const fetch = require('node-fetch');
 const console = require('console');
 
 const MAIN_TEST_RESULT_PATH = path.join('test', 'temp', ' integrationTestResult');
-const URL = 'https://raw.githubusercontent.com/asyncapi/generator/master/test/docs/ws.yml';
-
 describe('template integration test using generator', () => {
   const generateFolderName = () => {
     return path.resolve(MAIN_TEST_RESULT_PATH, Date.now().toString());
@@ -16,7 +13,6 @@ describe('template integration test using generator', () => {
 
   it('should generate application files ', async () => {
     const outputDir = generateFolderName();
-    const asyncapiFile = await fetch(URL);
     const params = {
       server: 'localhost'
     };
@@ -25,7 +21,8 @@ describe('template integration test using generator', () => {
       templateParams: params
     });
     console.log(outputDir);
-    await generator.generateFromString(await asyncapiFile.text());
+    const asyncApiPath = './mocks/asyncapi.yml';
+    await generator.generateFromFile(path.resolve('test', asyncApiPath));
     const expectedFiles = [
       'src/api/index.js',
       'src/api/routes.js',

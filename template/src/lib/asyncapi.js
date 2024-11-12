@@ -1,4 +1,9 @@
-const fs = require('fs');
+const { File } = require('@asyncapi/generator-react-sdk');
+
+function asyncApiFile() {
+  return (
+    <File name="asyncapi.js">
+      {`const fs = require('fs');
 const path = require('path');
 const { Parser } = require('@asyncapi/parser');
 
@@ -31,3 +36,9 @@ module.exports.init = async () => {
 };
 
 module.exports.get = () => cached;
+`}
+    </File>
+  );
+}
+
+module.exports = asyncApiFile;

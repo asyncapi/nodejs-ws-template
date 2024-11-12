@@ -33,8 +33,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@asyncapi/generator-filters": "^2.1.0",
-    "@asyncapi/generator-hooks": "^0.1.0"
+    "@asyncapi/generator-hooks": "^0.1.0",
+    "@asyncapi/generator-react-sdk": "^1.1.1"
   },
   "devDependencies": {
     "@asyncapi/generator": "^1.9.17",
@@ -47,9 +47,11 @@
     "eslint-plugin-jest": "^25.3.4",
     "eslint-plugin-sonarjs": "^0.11.0",
     "jest": "^27.4.5",
+    "lodash": "^4.17.21",
     "markdown-toc": "^1.2.0",
     "node-fetch": "^2.6.1",
     "rimraf": "^3.0.2",
+    "sanitize-filename": "^1.6.3",
     "semantic-release": "^21.0.1"
   },
   "release": {
@@ -77,6 +79,7 @@
     "supportedProtocols": [
       "ws"
     ],
+    "renderer": "react",
     "parameters": {
       "server": {
         "description": "The server you want to use in the code.",
@@ -87,9 +90,6 @@
       }
     },
     "generator": ">=0.50.0 <2.0.0",
-    "filters": [
-      "@asyncapi/generator-filters"
-    ],
     "hooks": {
       "@asyncapi/generator-hooks": "createAsyncapiFile"
     }
