@@ -5,7 +5,7 @@ const fetch = require('node-fetch');
 const console = require('console');
 
 const MAIN_TEST_RESULT_PATH = path.join('test', 'temp', ' integrationTestResult');
-const URL = 'https://raw.githubusercontent.com/asyncapi/generator/master/test/docs/ws.yml';
+const URL = 'https://raw.githubusercontent.com/asyncapi/generator/master/apps/generator/test/docs/ws.yml';
 
 describe('template integration test using generator', () => {
   const generateFolderName = () => {
@@ -17,6 +17,8 @@ describe('template integration test using generator', () => {
   it('should generate application files ', async () => {
     const outputDir = generateFolderName();
     const asyncapiFile = await fetch(URL);
+    if (!asyncapiFile.ok) throw new Error('Failed to fetch the AsyncAPI file');
+    
     const params = {
       server: 'localhost'
     };
