@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@asyncapi/parser": "^3.4.0",
-    "express": "4.19.2",
+    "express": "5.1.0",
     "express-ws": "4.0.0",
     "node-yaml-config": "1.0.0"
   }
