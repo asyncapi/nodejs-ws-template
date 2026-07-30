@@ -34,7 +34,8 @@
   },
   "dependencies": {
     "@asyncapi/generator-filters": "^2.1.0",
-    "@asyncapi/generator-hooks": "^0.1.0"
+    "@asyncapi/generator-hooks": "^0.1.0",
+    "linkify-it": "^5.0.1"
   },
   "devDependencies": {
     "@asyncapi/generator": "^1.9.17",
